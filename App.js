@@ -11,6 +11,9 @@ const instructions = Platform.select({
 type Props = {};
 export default class App extends Component<Props> {
   render() {
+
+    AgoraRtcEngine.createEngine('2169366d339f4a2a82f225fe80b5d602');
+    
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React Native!</Text>
