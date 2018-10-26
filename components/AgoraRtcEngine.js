@@ -1,6 +1,6 @@
 import {NativeModules, findNodeHandle, Platform, UIManager} from 'react-native';
-import AgoraRendererView from './AgoraRendererView'
-let AgoraRtcEngine = Object.create(NativeModules.AgoraRtcEngineModule);
+import AgoraViewRenderer from './AgoraViewRenderer'
+let AgoraRtcEngine = Object.create(NativeModules.AgoraRtcEngine);
 
 AgoraRtcEngine.setLocalVideoView = (rendererView, renderMode) => {
     if (Platform.OS === 'ios') {
@@ -9,7 +9,7 @@ AgoraRtcEngine.setLocalVideoView = (rendererView, renderMode) => {
     else {
         UIManager.dispatchViewManagerCommand(
             findNodeHandle(rendererView),
-            UIManager.AgoraRendererView.Commands.localVideo,
+            UIManager.AgoraViewRenderer.Commands.localVideo,
             [0, renderMode]
         );
     }
@@ -22,7 +22,7 @@ AgoraRtcEngine.setRemoteVideoView = (rendererView, uid, renderMode) => {
     else {
         UIManager.dispatchViewManagerCommand(
             findNodeHandle(rendererView),
-            UIManager.AgoraRendererView.Commands.remoteVideo,
+            UIManager.AgoraViewRenderer.Commands.remoteVideo,
             [uid, renderMode]
         );
     }

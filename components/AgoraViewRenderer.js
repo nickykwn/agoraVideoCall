@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {requireNativeComponent, ViewPropTypes} from 'react-native';
 
 var iface = {
-    name: 'AgoraRendererView',
+    name: 'AgoraViewRenderer',
     propTypes:  {
         //src: PropTypes.array,
         //borderRadius: PropTypes.number,
@@ -14,4 +14,4 @@ var iface = {
     },
 };
 
-module.exports = requireNativeComponent('AgoraRendererView', iface);
+module.exports = requireNativeComponent('AgoraViewRenderer', iface);
