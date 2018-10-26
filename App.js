@@ -8,12 +8,19 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-type Props = {};
-export default class App extends Component<Props> {
+toggleAudio() {
+    AgoraRtcEngine.muteLocalAudioStream(muted);
+}
+
+
+
+export default class App extends Component {
   render() {
 
     AgoraRtcEngine.createEngine('2169366d339f4a2a82f225fe80b5d602');
-    
+    AgoraRtcEngine.enableVideo();
+    AgoraRtcEngine.enableAudio();
+
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React Native!</Text>
