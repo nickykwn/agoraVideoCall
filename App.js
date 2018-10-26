@@ -15,24 +15,69 @@ import {
 import AgoraRtcEngine from './components/AgoraRtcEngine';
 import AgoraRendererView from './components/AgoraViewRenderer';
 
-toggleAudio() {
-    AgoraRtcEngine.muteLocalAudioStream(muted);
+const agoraKitEmitter = new NativeEventEmitter(AgoraRtcEngine);
+var isSpeakerPhone = false;
+
+disableVideo() {
+  AgoraRtcEngine.disableVideo();
 }
 
-
+toggleAudio() {
+  AgoraRtcEngine.muteLocalAudioStream(muted);
+}
 
 export default class App extends Component {
+
+  _joinChannel() {
+  AgoraRtcEngine.setLocalVideoView(this._localView, AgoraRtcEngine.AgoraVideoRenderModeFit);
+  AgoraRtcEngine.setVideoProfile(AgoraRtcEngine.AgoraVideoProfileDEFAULT, false);
+  AgoraRtcEngine.startPreview();
+  AgoraRtcEngine.joinChannel(null, "rnchannel01", "React Native for Agora RTC SDK", 0);
+  }
+
   render() {
 
     AgoraRtcEngine.createEngine('2169366d339f4a2a82f225fe80b5d602');
     AgoraRtcEngine.enableVideo();
     AgoraRtcEngine.enableAudio();
+    AgoraRtcEngine.setVideoProfileDetail(360, 640, 15, 300);
+    AgoraRtcEngine.setChannelProfile(AgoraRtcEngine.AgoraChannelProfileCommunication);
 
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <AgoraViewRenderer
+          ref={component => this._localView = component}
+          style = {{width: 360, height: 240}}
+        />
+
+        <AgoraViewRenderer
+          ref={component => this._remoteView = component}
+          style = {{width: 360, height: 240}}
+        />
+
+        <View style={{flexDirection: 'row'}}>
+          <Button style = {{flex: 1}}
+            onPress={this._joinChannel.bind(this)}
+            title="Join Channel"
+            style={{width:180, float:"left", backgroundColor:"rgb(0,0,0)"}}
+            color="#841584"
+          />
+          <Button
+            onPress={this.toggleAudio.bind(this)}
+            title="Mute"
+            color="#841584"
+          />
+          <Button
+            onPress={this.disableVideo.bind(this)}
+            title="Turn off Camera"
+            color="#841584"
+          />
+          <Button
+            onPress={this._leaveChannel.bind(this)}
+            title="Leave Channel"
+            color="#841584"
+          />
+        </View>
       </View>
     );
   }
