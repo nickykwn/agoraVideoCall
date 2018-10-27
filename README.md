@@ -11,9 +11,9 @@ What things you need to install the software and how to install them
 ⋅⋅* Babel
 
 ## Reference Material 
-⋅⋅* [AgoraIO/React-Native-SDK](https://github.com/AgoraIO/React-Native-SDK)
-⋅⋅* Stack OverfLow
-⋅⋅* https://docs.agora.io/en/Video/downloads
+⋅⋅* [AgoraIO/React-Native-SDK](https://github.com/AgoraIO/React-Native-SDK).
+⋅⋅* Stack OverfLow.
+⋅⋅* https://docs.agora.io/en/Video/downloads.
 
 ## Getting Started
 You will need to navigate to [Agora.io.](https://dashboard.agora.io/signin/) to begin.
