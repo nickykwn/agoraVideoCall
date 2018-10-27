@@ -13,26 +13,31 @@ import {
   DeviceEventEmitter
 } from 'react-native';
 import AgoraRtcEngine from './components/AgoraRtcEngine';
-import AgoraRendererView from './components/AgoraViewRenderer';
+import AgoraViewRenderer from './components/AgoraViewRenderer';
 
 const agoraKitEmitter = new NativeEventEmitter(AgoraRtcEngine);
-var isSpeakerPhone = false;
 
-disableVideo() {
-  AgoraRtcEngine.disableVideo();
-}
-
-toggleAudio() {
-  AgoraRtcEngine.muteLocalAudioStream(muted);
-}
 
 export default class App extends Component {
 
   _joinChannel() {
-  AgoraRtcEngine.setLocalVideoView(this._localView, AgoraRtcEngine.AgoraVideoRenderModeFit);
-  AgoraRtcEngine.setVideoProfile(AgoraRtcEngine.AgoraVideoProfileDEFAULT, false);
-  AgoraRtcEngine.startPreview();
-  AgoraRtcEngine.joinChannel(null, "rnchannel01", "React Native for Agora RTC SDK", 0);
+    AgoraRtcEngine.setLocalVideoView(this._localView, AgoraRtcEngine.AgoraVideoRenderModeFit);
+    AgoraRtcEngine.setVideoProfile(AgoraRtcEngine.AgoraVideoProfileDEFAULT, false);
+    AgoraRtcEngine.startPreview();
+    AgoraRtcEngine.joinChannel(null, "rnchannel01", "React Native for Agora RTC SDK", 0);
+  }
+
+  leaveCall() {
+    AgoraRtcEngine.stopPreview();
+    AgoraRtcEngine.leaveChannel();
+  }
+
+  disableVideo() {
+    AgoraRtcEngine.disableVideo();
+  }
+
+  toggleAudio() {
+    AgoraRtcEngine.muteLocalAudioStream(muted);
   }
 
   render() {
@@ -57,29 +62,41 @@ export default class App extends Component {
 
         <View style={{flexDirection: 'row'}}>
           <Button style = {{flex: 1}}
-            onPress={this._joinChannel.bind(this)}
+            onPress={this.joinChannel.bind(this)}
             title="Join Channel"
             style={{width:180, float:"left", backgroundColor:"rgb(0,0,0)"}}
-            color="#841584"
+            color="#FF0000"
           />
           <Button
             onPress={this.toggleAudio.bind(this)}
             title="Mute"
-            color="#841584"
+            color="#FF0000"
           />
           <Button
             onPress={this.disableVideo.bind(this)}
             title="Turn off Camera"
-            color="#841584"
+            color="#FF0000"
           />
           <Button
-            onPress={this._leaveChannel.bind(this)}
-            title="Leave Channel"
-            color="#841584"
+            onPress={this.leaveCalll.bind(this)}
+            title="Leave Call"
+            color="#FF0000"
           />
         </View>
       </View>
     );
+  }
+
+// Aogra CallBack
+  remoteDidJoineChannelNoti = agoraKitEmitter.addListener(
+    'RemoteDidJoinedChannel',
+    (notify) => {
+      AgoraRtcEngine.setRemoteVideoView(this._remoteView, notify.uid, AgoraRtcEngine.AgoraVideoRenderModeFit);
+    }
+  );
+
+  componentWillUnmount() {
+    remoteDidJoineChannelNoti.remove()
   }
 }
 
