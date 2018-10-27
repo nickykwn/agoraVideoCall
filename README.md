@@ -11,9 +11,9 @@ What things you need to install the software and how to install them
 ⋅⋅* Babel
 
 ## Reference Material 
-⋅⋅* [AgoraIO/React-Native-SDK](https://github.com/AgoraIO/React-Native-SDK).
-⋅⋅* Stack OverfLow.
-⋅⋅* https://docs.agora.io/en/Video/downloads.
+* [AgoraIO/React-Native-SDK](https://github.com/AgoraIO/React-Native-SDK)
+* Stack OverfLow
+* https://docs.agora.io/en/Video/downloads
 
 ## Getting Started
 You will need to navigate to [Agora.io.](https://dashboard.agora.io/signin/) to begin.
@@ -24,7 +24,7 @@ You will need to navigate to [Agora.io.](https://dashboard.agora.io/signin/) to 
 
 ### Build Process
 1. First off, to create a react-native application, you will need to open your Command Line/Terminal and type the command
-⋅⋅* react-native init "App Name"
+* react-native init "App Name"
 This command will create the folder for the application you are about to build. 
 2. With the folder created, you will need access the folder you have just created with the command of cd "folder name". Once in the correct directory, you will need to install the node_modules by typing the command of "npm install".
 3. Depending on the device you are building on, you will need to choose the correct [Agora Video SDK](https://www.agora.io/en/download/).
