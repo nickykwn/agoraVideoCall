@@ -25,7 +25,7 @@ You will need to navigate to [Agora.io.](https://dashboard.agora.io/signin/) to 
 3. Copy the App ID from the Dashboard as you will need to use it later
 
 ## File Structure
-
+![](https://github.com/nickykwn/agoraVideoCall/blob/master/images/structure.png)
 
 ### Build Process
 1. First off, to create a react-native application, you will need to open your Command Line/Terminal and type the command
@@ -33,6 +33,7 @@ You will need to navigate to [Agora.io.](https://dashboard.agora.io/signin/) to 
 This command will create the folder for the application you are about to build. 
 2. With the folder created, you will need access the folder you have just created with the command of cd "folder name". Once in the correct directory, you will need to install the node_modules by typing the command of "npm install".
 3. Depending on the device you are building on, you will need to choose the correct [Agora Video SDK](https://www.agora.io/en/download/).
+
 #### For Android: 
 Un-compress the downloaded SDK package and copy the libs/agora-rtc-sdk.jar file into the android/app/libs folder.
 Then copy the libs/arm64-v8a/x86/armeabi-v7a folder into the android/app/src/main/jniLibs folder.
