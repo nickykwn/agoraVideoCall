@@ -5,10 +5,10 @@ This is a basic VideoCalling App in React-Native using the Agora.IO Video SDK.
 ### Prerequisites
 
 What things you need to install the software and how to install them
-⋅⋅* Node 6.9.1+
-⋅⋅* React-Native 0.54.2
-⋅⋅* Xcode
-⋅⋅* Babel
+* Node 6.9.1+
+* React-Native 0.54.2
+* Xcode
+* Babel
 
 ## Reference Material 
 * [AgoraIO/React-Native-SDK](https://github.com/AgoraIO/React-Native-SDK)
