@@ -21,6 +21,7 @@ You will need to navigate to [Agora.io.](https://dashboard.agora.io/signin/) to 
 
 1. Create a developer account at [Agora.io.](https://dashboard.agora.io/signin/)
 2. In the Agora.io Dashboard that appears, click Projects > Project List in the left navigation.
+![](https://github.com/nickykwn/agoraVideoCall/blob/master/images/add%20project.png)
 3. Copy the App ID from the Dashboard as you will need to use it later
 
 ## File Structure
