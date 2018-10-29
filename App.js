@@ -20,7 +20,7 @@ const agoraKitEmitter = new NativeEventEmitter(AgoraRtcEngine);
 
 export default class App extends Component {
 
-  _joinChannel() {
+  joinChannel() {
     AgoraRtcEngine.setLocalVideoView(this._localView, AgoraRtcEngine.AgoraVideoRenderModeFit);
     AgoraRtcEngine.setVideoProfile(AgoraRtcEngine.AgoraVideoProfileDEFAULT, false);
     AgoraRtcEngine.startPreview();
