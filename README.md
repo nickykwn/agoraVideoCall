@@ -23,6 +23,9 @@ You will need to navigate to [Agora.io.](https://dashboard.agora.io/signin/) to 
 2. In the Agora.io Dashboard that appears, click Projects > Project List in the left navigation.
 3. Copy the App ID from the Dashboard as you will need to use it later
 
+## File Structure
+
+
 ### Build Process
 1. First off, to create a react-native application, you will need to open your Command Line/Terminal and type the command
 * react-native init "App Name"
