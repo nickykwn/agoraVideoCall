@@ -58,6 +58,7 @@ Apply a valid provisioning profile and run the project.
 
 ## Running on Device
 To produce the application an Apple device, the project will need to be opened with Xcode from an Apple computer. When opening xcode, you will need to locate the .xcodeproj file which will be inside the ios folder. While project is opened, you will need to make a few changes to enable the project to be properly installed. A problem I encountered was that there were errors. One error was there was no team chosen in the signing section. I was able to use previous signing certificates for my personal use and chose my name (personal team) which I have used before. Another problem I encountered was an error of "Config.h" was not found. To fix this problem, you can navigate to File>Project Settings>. From there you will see the first subsection allows you to choose the Build System. With much research using google, much of the developer community suggested to change from the default of New Build System (Default) to Legacy Build System. This worked to absolutely perfection and I was able to operate my application on my ipad following the build.
+![](https://github.com/nickykwn/agoraVideoCall/blob/master/images/xcode.png)
 
 
 
